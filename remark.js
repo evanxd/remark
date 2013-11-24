@@ -3996,6 +3996,9 @@ marked.setOptions({
 });
 
 converter.convertMarkdown = function (source) {
+  source = source.replace(/&lt;/g, '<');
+  source = source.replace(/&gt;/g, '>');
+
   // Unescape block-quotes before conversion (&gt; => >)
   source = source.replace(/(^|\n)( *)&gt;/g, '$1$2>');
 
